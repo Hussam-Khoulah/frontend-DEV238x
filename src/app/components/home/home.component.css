@@ -12,14 +12,18 @@
 
 #productCarousel {
   height: 100vh;
+  vertical-align: middle;
 }
 
-.product-frame {
+.carousel-item .row {
   text-align: center;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
 }
 
-.carousel-item img {
-  max-height: 48vh; max-width: 75%
+.carousel-item .col-md-6 {
+  padding: 4vh 5% 0 5%;
+}
+
+.img-fluid {
+  max-width: 100%;
+  max-height: 45vh;
 }
