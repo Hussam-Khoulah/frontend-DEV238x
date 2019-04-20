@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    <div class="col d-flex justify-content-between mb-3">
+      <div>
+        <h1>Welcome to Grocery Live!</h1>
+        <h6>The easiest way to shop for your grocery needs</h6>
+      </div>
+      <div class="my-auto">
+        <button type="button" class="btn btn-primary">Shop all &gt;</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-md-right">
+      <input type="checkbox" id="scales" name="scales" checked>
+      <label for="scales">Toggle Slide Show</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <!--todo: populate carousel items using products service -->
+      <div id="productCarousel" class="carousel slide border" data-ride="carousel" data-interval="3000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-6 product-frame" >
+                  <a href="http://www.google.com" title="temp title">
+                    <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/bandage.png" alt="First slide">
+                  </a>
+              </div>
+              <div class="col-md-6 product-frame">
+                  <a href="http://www.google.com" title="temp title">
+                    <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/coldandflusyrup.png" alt="First slide">
+                  </a>
+              </div>
+              <div class="col-md-6 product-frame">
+                  <a href="http://www.google.com" title="temp title">
+                    <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/painrelief.png" alt="First slide">
+                  </a>
+              </div>
+              <div class="col-md-6 product-frame">
+                  <a href="http://www.google.com" title="temp title">
+                    <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/firstaidkit.png" alt="First slide">
+                  </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-6 product-frame">
+                <div class="thumbnail">
+                  <a href="http://www.google.com">
+                    <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/bandage.png" alt="First slide">
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 product-frame">
+                <div class="thumbnail">
+                  <a href="http://www.google.com">
+                    <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/coldandflusyrup.png" alt="First slide">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-12 product-frame">
+                <div class="thumbnail">
+                  <a href="http://www.google.com">
+                    <img src="https://webmppcapstone.blob.core.windows.net/drugs-royaltyfree/bandage.png" alt="First slide">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
