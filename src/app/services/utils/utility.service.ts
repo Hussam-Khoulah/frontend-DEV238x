@@ -10,17 +10,15 @@ export class UtilityService {
   getRandomItems(inputArray, count) {
     const copyInput = [];
     copyInput.push(...inputArray);
+    const outputArray = [];
 
-    if (copyInput && copyInput.length) {
-      const  outputArray = [];
+    if (copyInput.length) {
       for (let i = 0; i < count; i++) {
         const index = Math.floor(Math.random() * copyInput.length);
         outputArray.push(copyInput[index]);
         copyInput.splice(i, 1);
       }
-      return outputArray;
-    } else {
-      return [];
     }
+    return outputArray;
   }
 }
