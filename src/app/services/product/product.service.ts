@@ -30,4 +30,18 @@ export class ProductService {
       }
     });
   }
+
+  findProduct(products, productName) {
+    for (let i = 0; i < products.length; i++) {
+      const product = products[i];
+      for (let j = 0; j < product.subcategories.length; j++) {
+        const subCat = product.subcategories[j];
+        const found = subCat.items.find(item => item.name.trim() === productName.trim());
+        if (found) {
+          return found;
+        }
+      }
+    }
+    return 'Product not found';
+  }
 }
