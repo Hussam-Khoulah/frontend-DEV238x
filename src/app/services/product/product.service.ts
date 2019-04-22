@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class ProductService {
 
   products: any = [];
+  carouselProducts: any = [];
 
   constructor(private http: HttpClient) {
   }
