@@ -16,7 +16,7 @@ export class UtilityService {
       for (let i = 0; i < count; i++) {
         const index = Math.floor(Math.random() * copyInput.length);
         outputArray.push(copyInput[index]);
-        copyInput.splice(i, 1);
+        copyInput.splice(index, 1);
       }
     }
     return outputArray;

@@ -20,6 +20,17 @@ export class HomeComponent implements OnInit {
     this.populateCaroucel();
   }
 
+  activateCarousel() {
+    $(document).ready(function() {
+      $(function () {
+        $('#toggleSlideShow').click(function (event) {
+          const option = event.target.checked ? { interval: 3000 } : 'pause';
+          $('#productCarousel').carousel(option);
+        });
+      });
+    });
+  }
+
   populateCaroucel() {
     this.productService.fetch().subscribe(data => {
       // remove subcategory so to make easier to pick 4 products from each category so to populate carousel
@@ -37,15 +48,7 @@ export class HomeComponent implements OnInit {
           random4: this.utilityService.getRandomItems(cat.products, 4)
         };
       });
-
-      $(document).ready(function() {
-        $(function () {
-          $('#toggleSlideShow').click(function (event) {
-            const option = event.target.checked ? { interval: 3000 } : 'pause';
-            $('#productCarousel').carousel(option);
-          });
-        });
-      });
+      this.activateCarousel();
     });
   }
 
