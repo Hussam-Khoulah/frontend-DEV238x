@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class ProductService {
       if (this.products.length > 0) {
         obs.next(this.products);
       } else {
-        this.http.get('https://webmppcapstone.blob.core.windows.net/data/itemsdata.json').subscribe((data: any) => {
+        this.http.get(environment.productsAPIEndpoint).subscribe((data: any) => {
           if (data) {
             this.products = data;
             obs.next(this.products);

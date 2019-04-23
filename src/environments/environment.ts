@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  productsAPIEndpoint: 'https://webmppcapstone.blob.core.windows.net/data/itemsdata.json'
 };
 
 /*
