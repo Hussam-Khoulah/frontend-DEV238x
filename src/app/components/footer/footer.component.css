@@ -1,0 +1,39 @@
+#appFooter {
+  background-color: silver;
+  margin-top: 60px;
+  padding-top: 30px;
+}
+
+#appFooter .footer-copyright {
+  background-color: grey;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: center;
+}
+
+#appFooter .row {
+  margin-bottom: 60px;
+}
+
+#appFooter .footer-copyright p {
+  margin: 10px;
+}
+
+#appFooter h2 a{
+  font-size: 40px;
+  text-align: center;
+}
+
+#appFooter a {
+  text-decoration: none;
+}
+
+#appFooter .btn {
+  border-radius: 20px;
+  border: none;
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  line-height: 25px;
+}
