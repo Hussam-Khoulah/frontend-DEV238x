@@ -1,44 +1,44 @@
-<div class="row">
-  <div class="col d-flex justify-content-between mb-3">
-    <div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-9 col-lg-10">
       <h1>Welcome to Grocery Live!</h1>
       <h6>The easiest way to shop for your grocery needs</h6>
     </div>
-    <div class="my-auto">
+    <div class="col-sm-6 col-md-3 col-lg-2">
       <button type="button" class="btn btn-primary btn-lg">Shop all &gt;</button>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col text-md-right">
-    <input type="checkbox" id="toggleSlideShow" name="toggleSlideShow" unchecked>
-    <label for="toggleSlideShow">Toggle Slide Show</label>
+  <div class="row">
+    <div class="col text-md-right">
+      <input type="checkbox" id="toggleSlideShow" name="toggleSlideShow" unchecked>
+      <label for="toggleSlideShow">Toggle Slide Show</label>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col">
+  <div class="row">
+    <div class="col">
 
-    <div id="productCarousel" class="carousel slide border">
-      <div class="carousel-inner">
-        <div *ngFor="let item of products; let i = index" [ngClass]="{'carousel-item': true, 'active': i === 0}">
-          <div class="row">
-            <div *ngFor="let product of item.random4; let i = index" class="col-md-6">
-              <a [routerLink]="['product']" [queryParams]="{name: product.name}"  [title]="product.name + ': ' + product.description">
-                <img class="img-fluid" [src]="product.imagelink" [alt]="product.name">
-              </a>
+      <div id="productCarousel" class="carousel slide border">
+        <div class="carousel-inner">
+          <div *ngFor="let item of products; let i = index" [ngClass]="{'carousel-item': true, 'active': i === 0}">
+            <div class="row">
+              <div *ngFor="let product of item.random4; let i = index" class="col-6 col-sm-6 col-md-6">
+                <a [routerLink]="['product']" [queryParams]="{name: product.name}"  [title]="product.name + ': ' + product.description">
+                  <img class="img-fluid" [src]="product.imagelink" [alt]="product.name">
+                </a>
+              </div>
             </div>
           </div>
         </div>
+        <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      
     </div>
-
   </div>
 </div>
