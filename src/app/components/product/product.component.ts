@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { ProductService } from '../../services/product/product.service';
+import { CartService } from '../../services/cart/cart.service';
 
 
 @Component({
@@ -9,19 +11,41 @@ import { ProductService } from '../../services/product/product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  productName: string = null;
-  productObject: any = null;
+  productName = '';
+  product: any = {};
+  qty: Number = 0;
+  validQty = true;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private productService: ProductService) { }
+              private productService: ProductService,
+              private location: Location,
+              private cartService: CartService) { }
 
   ngOnInit() {
     this.productName =  this.activatedRoute.snapshot.queryParamMap.get('name');
-    this.productObject = this.productService.findProduct(this.productService.products, this.productName);
-    // todo: populate product page controls
-    console.log('=======');
-    console.log(this.productObject);
-    console.log('=======');
+    if (this.productService.products.length > 0 ) {
+      this.product = this.productService.findProduct(this.productService.products, this.productName);
+    } else {
+      this.productService.fetch().subscribe(data => {
+        this.product = this.productService.findProduct(data, this.productName);
+      });
+    }
+  }
+
+  onAddToCart() {
+    if (!(this.qty <= Number.parseFloat(this.product.stock) && (this.qty > 0))) {
+      this.validQty = false;
+    } else {
+      this.validQty = true;
+    }
+    this.cartService.addItem(this.product);
+    this.cartService.fetch().subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  onGoBackClicked() {
+    this.location.back();
   }
 
 }

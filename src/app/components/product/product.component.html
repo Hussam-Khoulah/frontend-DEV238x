@@ -1,4 +1,41 @@
-<p>
-  {{ productName }}
-</p>
+<div class="container">
+  <div class="row p-4">
+    <div class="col">
+      <button type="button" class="btn btn-default btn-lg" (click)="onGoBackClicked()">&#10094; Back</button>
+    </div>
+  </div>
+  <div class="row p-4">
+    <div class="col-12 col-sm-12 col-md-5 text-center">
+      <img class="img-fluid" [src]="product.imagelink" [alt]="product.name">
+    </div>
+    <div class="d-none d-md-block col-md-1"></div>
+    <div class="col-12 col-sm-12 col-md-6 text-center h-100 align-middle">
+      <h2>
+        {{ product.name }}
+      </h2>
+      <p>
+        Rating: {{ product.rating }}/5
+      </p>
+      <p>
+        Price: {{ product.price }}
+      </p>
+      <p>
+        Items in stock: {{ product.stock }}
+      </p>
+      <p>
+        Description: {{ product.description }}
+      </p>
+      <div>
+        <label for="value">Qty: </label>
+        <input type="text" id="value" autocomplete="off" class="text-center" [(ngModel)]="qty" required/>
+        <p class="alert alert-danger" *ngIf="!validQty">
+          Please enter a valid qty and make sure it's available in stock
+        </p>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary" (click)="onAddToCart()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
 
