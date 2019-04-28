@@ -1,3 +1,80 @@
-<p>
-  shopping works!
-</p>
+<div class="container-fluid">
+
+  <div class="row navbar navbar-light bg-light border">
+
+    <div class="col-sm-4 col-md-6">
+      <h2>
+        {{ subcategoryName && subcategoryName.length > 0 ? subcategoryName : defaultSubcategory }}
+      </h2>
+    </div>
+
+    <div class="col-sm-4 col-md-3">
+      <label for="onlyInStockCheckBox">In stock only: </label>
+      <input type="checkbox" #onlyInStock id="onlyInStockCheckBox" unchecked>
+    </div>
+    <div class="col-sm-4 col-md-3">
+
+    </div>
+
+  </div>
+
+  <div class="row content-row">
+    <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2">
+
+      <div id="border">
+        <div class="list-group">
+
+          <div *ngFor="let item of products; let i = index">
+            <a [href]="'#' + item.category.replace(' ', '_')" class="list-group-item list-group-item-light font-weight-bold" data-toggle="collapse" data-parent="#MainMenu">{{ item.category }} &#9663;</a>
+            <div class="collapse" [id]="item.category.replace(' ', '_')">
+
+              <a
+                *ngFor="let subCat of item.subcategories;"
+                [routerLink]="['/shopping']"
+                [queryParams]="{ name: subCat.name }"
+                class="list-group-item">{{ subCat.name }}
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-8 col-md-9 col-lg-9 col-xl-10">
+
+      <div class="row">
+        <div
+          class="col-12 col-sm-6 col-md-4 col-lg-3 border"
+          *ngFor="let item of subcategory.items; let i = index"
+          [ngClass]="{ hidden: item.stock < 50 }">
+          <div class="thumbnail">
+            <div class="caption row">
+              <div class="col-12 font-weight-bold"><a [routerLink]="['/product']" [queryParams]="{ name: item.name }">{{item.name}}</a></div>
+              <div class="col-6"><span>Stock: {{item.stock}}</span></div>
+              <div class="col-6"><span>{{item.price}}$</span></div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <a [routerLink]="['/product']" [queryParams]="{ name: item.name }">
+                  <img [src]="item.imagelink" [alt]="item.name" style="width:100%" [title]="item.description">
+                </a>
+              </div>
+            </div>
+            <div class="row product-footer">
+              <div class="col">
+                <button class="btn btn-outline-secondary" title="Add one item to cart" (click)="onAddToCart(item)">Add</button>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

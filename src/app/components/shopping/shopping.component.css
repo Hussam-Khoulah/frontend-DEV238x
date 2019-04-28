@@ -1,0 +1,29 @@
+.container-fluid {
+  min-height: 80vh;
+}
+
+.content-row {
+  margin-top: 20px;
+}
+
+.list-group-item a {
+  text-decoration: none;
+}
+
+.list-group-item {
+  padding: 6px;
+  border-radius: unset;
+}
+
+.product-footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: right;
+}
+
+.product-footer .btn {
+  padding: 5px;
+  margin: 10px;
+}
+
