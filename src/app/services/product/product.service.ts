@@ -45,4 +45,15 @@ export class ProductService {
     }
     return 'Product not found';
   }
+
+  findSubcategory(products, subcategoryName = '') {
+    for (let i = 0; i < products.length; i++) {
+      const category = products[i];
+      const found = category.subcategories.find(subcat => subcat.name.trim() === subcategoryName.trim());
+      if (found) {
+        return found;
+      }
+    }
+    return 'Product not found';
+  }
 }
