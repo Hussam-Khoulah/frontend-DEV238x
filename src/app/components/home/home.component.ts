@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from '../../services/product/product.service';
 import { UtilityService } from '../../services/utils/utility.service';
 
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit {
 
   products: any = [];
 
-  constructor(private productService: ProductService,
+  constructor(private router: Router,
+              private productService: ProductService,
               private utilityService: UtilityService) { }
 
   ngOnInit() {
@@ -56,6 +58,10 @@ export class HomeComponent implements OnInit {
         this.activateCarousel();
       });
     }
+  }
+
+  onShoppingAll() {
+    this.router.navigate(['/shopping']);
   }
 
 }
