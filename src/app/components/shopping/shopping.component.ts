@@ -14,6 +14,7 @@ export class ShoppingComponent implements OnInit {
   subcategory: any = {};
   defaultSubcategory = 'Choose any subcategory';
   products: any = [];
+  inStockOnly = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,

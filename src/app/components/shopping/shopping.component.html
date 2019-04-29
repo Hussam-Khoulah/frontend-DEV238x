@@ -10,7 +10,9 @@
 
     <div class="col-sm-4 col-md-3">
       <label for="onlyInStockCheckBox">In stock only: </label>
-      <input type="checkbox" #onlyInStock id="onlyInStockCheckBox" unchecked>
+      <input type="checkbox" id="onlyInStockCheckBox"
+             [checked]="inStockOnly"
+             (change)="inStockOnly = !inStockOnly">
     </div>
     <div class="col-sm-4 col-md-3">
 
@@ -48,7 +50,7 @@
         <div
           class="col-12 col-sm-6 col-md-4 col-lg-3 border"
           *ngFor="let item of subcategory.items; let i = index"
-          [ngClass]="{ hidden: item.stock < 50 }">
+          [ngClass]="{ 'd-none': inStockOnly ? item.stock <= 0 : false }">
           <div class="thumbnail">
             <div class="caption row">
               <div class="col-12 font-weight-bold"><a [routerLink]="['/product']" [queryParams]="{ name: item.name }">{{item.name}}</a></div>
