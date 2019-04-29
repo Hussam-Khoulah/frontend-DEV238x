@@ -2,20 +2,23 @@
 
   <div class="row navbar navbar-light bg-light border">
 
-    <div class="col-sm-4 col-md-6">
+    <div class="col-sm-6 col-md-6">
       <h2>
         {{ subcategoryName && subcategoryName.length > 0 ? subcategoryName : defaultSubcategory }}
       </h2>
     </div>
 
-    <div class="col-sm-4 col-md-3">
+    <div class="col-sm-3 col-md-3">
       <label for="onlyInStockCheckBox">In stock only: </label>
       <input type="checkbox" id="onlyInStockCheckBox"
              [checked]="inStockOnly"
              (change)="inStockOnly = !inStockOnly">
     </div>
-    <div class="col-sm-4 col-md-3">
-
+    <div class="col-sm-3 col-md-3">
+      <label for="productSortingSelect">Sort by: </label>
+      <select id="productSortingSelect" (change)="onSortProducts($event)">
+        <option *ngFor="let key of sortingKeys" [value]="key">{{key}}</option>
+      </select>
     </div>
 
   </div>
@@ -66,12 +69,9 @@
             </div>
             <div class="row product-footer">
               <div class="col">
-                <button class="btn btn-outline-secondary" title="Add one item to cart" (click)="onAddToCart(item)">Add</button>
+                <button class="btn btn-outline-dark" title="Add one item to cart" (click)="onAddToCart(item)">Add</button>
               </div>
             </div>
-
-
-
           </div>
         </div>
       </div>

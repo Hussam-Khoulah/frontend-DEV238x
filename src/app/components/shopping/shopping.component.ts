@@ -15,6 +15,13 @@ export class ShoppingComponent implements OnInit {
   defaultSubcategory = 'Choose any subcategory';
   products: any = [];
   inStockOnly = false;
+  sortingOptions: any = {
+    None: 'None',
+    Price: 'price',
+    Alphabetical: 'name',
+    Rating: 'rating'
+  };
+  sortingKeys = Object.keys(this.sortingOptions);
 
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,
@@ -24,12 +31,10 @@ export class ShoppingComponent implements OnInit {
   ngOnInit() {
     this.productService.fetch().subscribe(data => {
       this.products = data;
-
       this.activatedRoute.queryParams.subscribe(params => {
         this.subcategoryName = params['name'];
-
         this.subcategory = this.productService.findSubcategory(this.products, this.subcategoryName);
-        console.log(this.subcategory);
+        this.subcategory.itemsInOriginalSorting = [...this.subcategory.items];
       });
 
     });
@@ -40,5 +45,18 @@ export class ShoppingComponent implements OnInit {
     this.cartService.fetch().subscribe(data => {
       console.log(data);
     });
+  }
+
+  onSortProducts(event) {
+    const sortingOption = this.sortingOptions[event.target.value];
+    if (sortingOption !== 'None') { // price, name, rating
+      this.subcategory.items.sort((a, b) => {
+        if (a[sortingOption] < b[sortingOption]) { return -1; }
+        if (a[sortingOption] > b[sortingOption]) { return 1; }
+        return 0;
+      });
+    } else { // None
+      this.subcategory.items = [...this.subcategory.itemsInOriginalSorting];
+    }
   }
 }
