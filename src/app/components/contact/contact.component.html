@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <h2>Contact us!</h2>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nameTextBox">Name:</label>
+          <input
+            type="text" id="nameTextBox" class="form-control" required
+            [(ngModel)]="name" name="name" #nameCtrl="ngModel">
+          <div [hidden]="nameCtrl.valid || nameCtrl.pristine"
+               class="alert alert-danger">
+            Name is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="emailTextBox">Email:</label>
+          <input
+            type="email" id="emailTextBox" class="form-control" required
+            [(ngModel)]="email" name="email" #emailCtrl="ngModel">
+          <div [hidden]="emailCtrl.valid || emailCtrl.pristine"
+               class="alert alert-danger">
+            Email is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subjectOptions">Subject:</label>
+          <select
+            id="subjectOptions" class="form-control"
+            [(ngModel)]="subject" name="subject">
+            <option *ngFor="let subject of subjects" [value]="subject">{{subject}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="messageTextBox">Name:</label>
+          <textarea
+            id="messageTextBox" class="form-control" required
+            [(ngModel)]="message" name="message" #messageCtrl="ngModel"></textarea>
+          <div [hidden]="messageCtrl.valid || messageCtrl.pristine"
+               class="alert alert-danger">
+            Message is required
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!contactForm.form.valid">Send</button>
+      </form>
+    </div>
+
+    <div class="col-12 col-md-6 contact-info p-4">
+      <p>In case you have any questions, please feel free to contact us as follows:</p>
+      <p>Email: info@grocerylive.com</p>
+      <p>Phone: +971 4 123 4567</p>
+    </div>
+  </div>
+</div>
