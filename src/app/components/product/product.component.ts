@@ -37,11 +37,11 @@ export class ProductComponent implements OnInit {
       this.validQty = false;
     } else {
       this.validQty = true;
+      this.cartService.addItem({ ...this.product, qty: this.qty });
+      this.cartService.fetch().subscribe(data => {
+        console.log(data);
+      });
     }
-    this.cartService.addItem({ ...this.product, qty: this.qty });
-    this.cartService.fetch().subscribe(data => {
-      console.log(data);
-    });
   }
 
   onGoBackClicked() {
