@@ -12,6 +12,7 @@ export class ShoppingComponent implements OnInit {
 
   subcategoryName = '';
   subcategory: any = {};
+  visibleProductsCount = 0;
   defaultSubcategory = 'Choose any subcategory';
   products: any = [];
   inStockOnly = false;
@@ -36,6 +37,9 @@ export class ShoppingComponent implements OnInit {
         if (this.subcategoryName) {
           this.subcategory = this.productService.findSubcategory(this.products, this.subcategoryName);
           this.subcategory.itemsInOriginalSorting = [...this.subcategory.items];
+          this.visibleProductsCount = this.inStockOnly ?
+            this.subcategory.items.filter(item => item.stock > 0).length :
+            this.subcategory.items.length;
         } else {
           this.subcategory = {};
         }
@@ -48,6 +52,13 @@ export class ShoppingComponent implements OnInit {
     this.cartService.fetch().subscribe(data => {
       console.log(data);
     });
+  }
+
+  onShowInStock() {
+    this.inStockOnly = !this.inStockOnly;
+    this.visibleProductsCount = this.inStockOnly ?
+      this.subcategory.items.filter(item => item.stock > 0).length :
+      this.subcategory.items.length;
   }
 
   onSortProducts(event) {
