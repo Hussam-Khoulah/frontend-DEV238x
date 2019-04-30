@@ -1,7 +1,7 @@
 #appFooter {
   background-color: silver;
   margin-top: 60px;
-  padding-top: 30px;
+  /*padding: 10px;*/
 }
 
 #appFooter .footer-copyright {
@@ -12,28 +12,8 @@
 }
 
 #appFooter .row {
-  margin-bottom: 60px;
+  padding: 20px;
 }
-
 #appFooter .footer-copyright p {
-  margin: 10px;
-}
-
-#appFooter h2 a{
-  font-size: 40px;
-  text-align: center;
-}
-
-#appFooter a {
-  text-decoration: none;
-}
-
-#appFooter .btn {
-  border-radius: 20px;
-  border: none;
-  width: 150px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 10px;
-  line-height: 25px;
+  /*margin: 10px;*/
 }
