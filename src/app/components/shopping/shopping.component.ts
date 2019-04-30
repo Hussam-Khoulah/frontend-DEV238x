@@ -44,7 +44,7 @@ export class ShoppingComponent implements OnInit {
   }
 
   onAddToCart(item) {
-    this.cartService.addItem(item, 1);
+    this.cartService.addItem({...item, qty: 1 });
     this.cartService.fetch().subscribe(data => {
       console.log(data);
     });

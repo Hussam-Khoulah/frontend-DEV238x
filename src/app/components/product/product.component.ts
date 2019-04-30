@@ -13,7 +13,7 @@ import { CartService } from '../../services/cart/cart.service';
 export class ProductComponent implements OnInit {
   productName = '';
   product: any = {};
-  qty: Number = 0;
+  qty = 0;
   validQty = true;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit {
     } else {
       this.validQty = true;
     }
-    this.cartService.addItem(this.product);
+    this.cartService.addItem({ ...this.product, qty: this.qty });
     this.cartService.fetch().subscribe(data => {
       console.log(data);
     });
