@@ -3,11 +3,9 @@
 }
 
 .item-hover:hover {
-  /*border:1px solid silver;*/
   background-color: #e8f4f8;
 }
 
 .emptyCartNote {
   min-height: 60vh;
-  vertical-align: middle;
 }
