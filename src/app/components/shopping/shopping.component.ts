@@ -33,10 +33,13 @@ export class ShoppingComponent implements OnInit {
       this.products = data;
       this.activatedRoute.queryParams.subscribe(params => {
         this.subcategoryName = params['name'];
-        this.subcategory = this.productService.findSubcategory(this.products, this.subcategoryName);
-        this.subcategory.itemsInOriginalSorting = [...this.subcategory.items];
+        if (this.subcategoryName) {
+          this.subcategory = this.productService.findSubcategory(this.products, this.subcategoryName);
+          this.subcategory.itemsInOriginalSorting = [...this.subcategory.items];
+        } else {
+          this.subcategory = {};
+        }
       });
-
     });
   }
 
