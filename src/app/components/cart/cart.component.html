@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-default btn-lg" (click)="onGoBackClicked()">&#10094; Back</button>
+    </div>
+  </div>
+  <div class="row p-4">
+    <div class="emptyCartNote" [ngClass]="{ 'd-none': items.length > 0}">
+      <p class="alert alert-danger">Cart is empty!</p>
+    </div>
+
+    <!--Cart Items-->
+    <div class="col-12 col-sm-12 col-md-8 bg-light" [ngClass]="{ 'd-none': items.length <= 0}">
+      <div *ngFor="let item of items; let i = index;" class="row p-2 item-hover">
+
+        <div class="col-12 col-sm-4 col-md-2">
+          <img class="img-fluid" [src]="item.imagelink" [title]="item.description" [alt]="item.name">
+        </div>
+        <div class="col-12 col-sm-2 col-md-3">
+          <span>{{item.name}}</span>
+        </div>
+        <div class="col-12 col-sm-1 col-md-2">
+          <span>Price: {{item.price}}$</span>
+        </div>
+        <div class="col-12 col-sm-2 col-md-2">
+          <input class="qtyClass text-center" type="number" [value]="item.qty" placeholder="Qty"  (change)="onItemQtyChange($event, item, i)">
+        </div>
+        <div class="col-12 col-sm-2 col-md-2">
+          Total: {{ item.price * item.qty }}$
+        </div>
+        <div class="col-12 col-sm-1 col-md-1">
+          <button type="button" class="btn btn-danger" (click)="onDeleteItem($event, i)">X</button>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-12 text-right">
+          Subtotal: {{ subtotal }}$
+        </div>
+      </div>
+    </div>
+
+    <!--Cart checkout details-->
+    <div class="col-12 col-sm-12 col-md-4 p-4 border" [ngClass]="{ 'd-none': items.length <= 0}">
+      <form>
+        <div class="form-group">
+          <label for="subtotalTextBox">Subtotal:</label>
+          <input type="text" disabled id="subtotalTextBox" [(ngModel)]="subtotal" [ngModelOptions]="{standalone: true}" class="form-control text-center">
+        </div>
+        <div class="form-group">
+          <label for="shippingTextBox">Shipping</label>
+          <input type="text" disabled id="shippingTextBox" [(ngModel)]="shipping" [ngModelOptions]="{standalone: true}" class=" form-control text-center">
+        </div>
+        <div class="form-group">
+          <label for="taxTextBox">Tax</label>
+          <input type="text" disabled id="taxTextBox" [(ngModel)]="tax" [ngModelOptions]="{standalone: true}" class=" form-control text-center">
+        </div>
+        <div class="form-group">
+          <label for="totalTextBox">Total</label>
+          <input type="text" disabled id="totalTextBox" [(ngModel)]="total" [ngModelOptions]="{standalone: true}" class=" form-control text-center">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="onCheckout()">Checkout</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
