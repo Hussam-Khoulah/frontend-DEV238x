@@ -72,7 +72,11 @@
 
           <div class="row product-footer bg-light align-middle">
             <div class="col-3">
-              <button class="btn btn-outline-secondary" title="Add one item to cart" (click)="onAddToCart(item)">Add</button>
+              <button
+                [disabled]="item.stock <= 0"
+                class="btn btn-outline-secondary"
+                title="Add one item to cart"
+                (click)="onAddToCart(item)">Add</button>
             </div>
             <div class="col-9 text-right">
               Rating: {{item.rating}}/5
