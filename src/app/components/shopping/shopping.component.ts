@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import { ProductService } from '../../services/product/product.service';
 import { CartService } from '../../services/cart/cart.service';
 
@@ -26,14 +27,19 @@ export class ShoppingComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,
-              private cartService: CartService) {
+              private cartService: CartService,
+              private title: Title) {
   }
 
   ngOnInit() {
+    this.title.setTitle(`Grocery live - Categories`);
     this.productService.fetch().subscribe(data => {
       this.products = data;
       this.activatedRoute.queryParams.subscribe(params => {
         this.subcategoryName = params['name'];
+
+        if (this.subcategoryName) { this.title.setTitle(`Grocery live - ${this.subcategoryName}`); }
+
         if (this.subcategoryName) {
           this.subcategory = this.productService.findSubcategory(this.products, this.subcategoryName);
           this.subcategory.itemsInOriginalSorting = [...this.subcategory.items];

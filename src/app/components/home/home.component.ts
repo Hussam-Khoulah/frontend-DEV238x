@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import { ProductService } from '../../services/product/product.service';
 import { UtilityService } from '../../services/utils/utility.service';
 
@@ -16,9 +17,11 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router,
               private productService: ProductService,
-              private utilityService: UtilityService) { }
+              private utilityService: UtilityService,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Grocery live - Home');
     this.populateCaroucel();
   }
 

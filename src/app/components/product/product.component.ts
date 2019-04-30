@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 import { ProductService } from '../../services/product/product.service';
 import { CartService } from '../../services/cart/cart.service';
 
@@ -19,10 +20,13 @@ export class ProductComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,
               private location: Location,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle(`Grocery live - Product details`);
     this.productName =  this.activatedRoute.snapshot.queryParamMap.get('name');
+    if (this.productName) { this.title.setTitle(`Grocery live - ${this.productName}`); }
     if (this.productService.products.length > 0 ) {
       this.product = this.productService.findProduct(this.productService.products, this.productName);
     } else {

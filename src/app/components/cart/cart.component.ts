@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 import { CartService } from '../../services/cart/cart.service';
 
 @Component({
@@ -20,11 +21,13 @@ export class CartComponent implements OnInit {
   phone = '';
 
   constructor(private location: Location,
-    private cartService: CartService) { }
+              private cartService: CartService,
+              private title: Title) { }
 
   ngOnInit() {
     this.items = this.cartService.items;
     this.calcCartSubtotal();
+    this.title.setTitle('Grocery live - Cart');
   }
 
   calcCartSubtotal() {

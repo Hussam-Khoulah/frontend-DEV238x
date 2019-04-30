@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -13,9 +14,11 @@ export class ContactComponent implements OnInit {
   subject = this.subjects[0];
   message = 'nice design!';
 
-  constructor() { }
+  constructor(private title: Title) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.title.setTitle('Grocery live - Contact us');
+  }
 
   onSubmit() {
     alert(this.message);
