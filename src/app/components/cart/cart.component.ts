@@ -13,6 +13,12 @@ export class CartComponent implements OnInit {
   shipping = 0;
   tax = 0;
   total = 0;
+
+  name = '';
+  address = '';
+  city = '';
+  phone = '';
+
   constructor(private location: Location,
     private cartService: CartService) { }
 
@@ -44,12 +50,16 @@ export class CartComponent implements OnInit {
     console.log(this.cartService.items);
   }
 
-  onCheckout() {
+  onSubmit() {
     const result = {
       subtotal: this.subtotal,
       shipping: this.shipping,
       tax: this.tax,
-      total: this.total
+      total: this.total,
+      name: this.name,
+      address: this.address,
+      city: this.city,
+      phone: this.phone
     };
     alert(JSON.stringify(result));
   }
