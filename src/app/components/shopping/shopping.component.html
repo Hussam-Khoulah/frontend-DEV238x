@@ -71,14 +71,14 @@
           </div>
 
           <div class="row product-footer bg-light align-middle">
-            <div class="col-3">
+            <div class="col-4">
               <button
                 [disabled]="item.stock <= 0"
                 class="btn btn-outline-secondary"
                 title="Add one item to cart"
                 (click)="onAddToCart(item)">Add</button>
             </div>
-            <div class="col-9 text-right">
+            <div class="col-8 text-right">
               Rating: {{item.rating}}/5
             </div>
           </div>
