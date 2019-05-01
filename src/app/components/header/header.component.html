@@ -1,8 +1,12 @@
 <!--rubric68-->
+<!--The header bar should always be at the top of the page-->
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <!--rubric65-->
+    <!--User shall see a link to the home page-->
     <!--rubric69-->
+    <!--Clicking the home page link should take the user to the home-->
+    <!--page-->
     <a class="navbar-brand" [routerLink]="['']">Grocery live</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,12 +16,17 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <!--rubric66-->
+          <!--User shall see a link to the shopping page-->
           <!--rubric70-->
+          <!--Clicking the shopping page link should take the user to the-->
+          <!--shopping page-->
           <a class="nav-link" [routerLink]="['\shopping']">Shop all</a>
         </li>
         <li class="nav-item">
           <!--rubric67-->
+          <!--User shall see a link to the cart page-->
           <!--rubric71-->
+          <!--Clicking the cart page link should take the user to the cart page-->
           <a class="nav-link" [routerLink]="['\cart']">
             <img src="assets/img/outline_shopping_cart_white_18dp.png">
           </a>

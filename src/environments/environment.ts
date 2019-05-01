@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   // rubric81
+  // Data was accessed using the Azure Web API and not a local file
   productsAPIEndpoint: 'https://webmppcapstone.blob.core.windows.net/data/itemsdata.json'
 };
 

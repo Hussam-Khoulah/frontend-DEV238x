@@ -31,6 +31,9 @@ export class CartComponent implements OnInit {
   }
 
   // rubric53
+  // The cost details section should update if any items are removed
+  // from the shopping cart of if any of the item quantities are
+  // updated
   calcCartSubtotal() {
     if (this.items && this.items.length > 0) {
       this.subtotal = this.items.map(item => item.price * item.qty).reduce((total, itemCost) => total + itemCost);
@@ -41,6 +44,8 @@ export class CartComponent implements OnInit {
   }
 
   // rubric55
+  // The cost column in the table should update if the quantity input
+  // field is changed
   onItemQtyChange(event, item, index) {
     if ( Number.parseFloat(event.target.value) <= Number.parseFloat(item.stock)) {
       this.items[index].qty = event.target.value;
@@ -51,6 +56,8 @@ export class CartComponent implements OnInit {
   }
 
   // rubric54
+  // The remove button should remove an item from the shopping
+  // cart
   onDeleteItem(event, index) {
     this.items.splice(index, 1);
     // rubric53
@@ -58,6 +65,8 @@ export class CartComponent implements OnInit {
   }
 
   // rubric51
+  // The checkout button should create an alert based on the users
+  // shipping details and total cost.
   onSubmit() {
     const result = {
       subtotal: this.subtotal,

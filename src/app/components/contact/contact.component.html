@@ -5,6 +5,10 @@
   <div class="row">
     <div class="col-12 col-md-6">
       <!--rubric57-->
+      <!--The user should see a form with text input fields for name and-->
+      <!--email, a dropdown list for subject, and a text area for a message.-->
+      <!--These fields should have placeholders to show what they-->
+      <!--represent-->
       <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="nameTextBox">Name:</label>
@@ -24,6 +28,8 @@
             type="email" id="emailTextBox" class="form-control" required
             [(ngModel)]="email" name="email" #emailCtrl="ngModel">
           <!--rubric61-->
+          <!--The form should show validation errors if the form isn’t filled out-->
+          <!--correctly and the send button is pressed-->
           <div [hidden]="emailCtrl.valid || emailCtrl.pristine"
                class="alert alert-danger">
             Email is required
@@ -51,11 +57,14 @@
           </div>
         </div>
         <!--rubric59-->
+        <!--The user should see a button labeled “Send”-->
         <button type="submit" class="btn btn-success" [disabled]="!contactForm.form.valid">Send</button>
       </form>
     </div>
 
     <!--rubric58-->
+    <!--The user should see description that shows an email and phone-->
+    <!--number for the contacting the business-->
     <div class="col-12 col-md-6 contact-info p-4">
       <p>In case you have any questions, please feel free to contact us as follows:</p>
       <p>Email: info@grocerylive.com</p>

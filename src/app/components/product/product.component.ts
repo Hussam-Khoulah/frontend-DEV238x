@@ -37,6 +37,9 @@ export class ProductComponent implements OnInit {
   }
 
   // rubric44
+  // Clicking the “Add” button should add the number of units
+  // specified in the “Qty” input field of the selected product to the
+  // shopping cart
   onAddToCart() {
     if (!(this.qty <= Number.parseFloat(this.product.stock) && (this.qty > 0))) {
       this.validQty = false;
@@ -50,6 +53,9 @@ export class ProductComponent implements OnInit {
   }
 
   // rubric45
+  // Clicking the “Back” button should take the user back to where
+  // they came from, whether it was the Shopping page or the
+  // Product Page.
   onGoBackClicked() {
     this.location.back();
   }

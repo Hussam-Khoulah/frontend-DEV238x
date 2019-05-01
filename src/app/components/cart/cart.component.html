@@ -11,6 +11,9 @@
 
     <!--Cart Items-->
     <!--rubric47-->
+    <!--The user should a table displaying the product image, name, unit-->
+    <!--price, quantity as an input field, total cost, and a remove button-->
+    <!--for each product in the shopping cart.-->
     <div class="col-12 col-sm-12 col-md-8 bg-light" [ngClass]="{ 'd-none': items.length <= 0}">
       <div *ngFor="let item of items; let i = index;" class="row p-2 item-hover">
 
@@ -35,6 +38,9 @@
 
       </div>
       <!--rubric49-->
+      <!--The user should see a section showing the subtotal cost of all the-->
+      <!--items in the shopping cart, the shipping cost, the tax cost, and a-->
+      <!--total cost of all of the items in the shipping cost.-->
       <div class="row">
         <div class="col-12 text-right">
           <p>Subtotal: {{ subtotal }}$</p>
@@ -49,6 +55,10 @@
     <div class="col-12 col-sm-12 col-md-4 p-4 border" [ngClass]="{ 'd-none': items.length <= 0 }">
 
       <!--rubric48-->
+      <!--The user should see a form labeled “Enter Shipping Details” that-->
+      <!--has text input fields for the users name, address, city, and phone-->
+      <!--number. These input fields should have placeholders that show-->
+      <!--what they represent.-->
       <h3>Enter Shipping Details</h3>
       <!--rubric51-->
       <form #checkoutForm="ngForm" (ngSubmit)="onSubmit()">
@@ -57,6 +67,8 @@
             type="text" id="nameTextBox" class="form-control" required placeholder="Name"
             [(ngModel)]="name" name="name" #nameCtrl="ngModel">
           <!--rubric52-->
+          <!--The form should show validation errors if the form isn’t filled out-->
+          <!--correctly and the checkout button is pressed-->
           <div [hidden]="nameCtrl.valid || nameCtrl.pristine"
                class="alert alert-danger">
             Name is required
@@ -96,6 +108,7 @@
           </div>
         </div>
         <!--rubric50-->
+        <!--The user should see a checkout button-->
         <button type="submit" class="btn btn-success" [disabled]="!checkoutForm.form.valid">Checkout</button>
       </form>
 

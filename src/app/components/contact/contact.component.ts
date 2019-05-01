@@ -21,6 +21,8 @@ export class ContactComponent implements OnInit {
   }
 
   // rubric60
+  // The send button should create an alert based on the message
+  // sent
   onSubmit() {
     alert(this.message);
   }

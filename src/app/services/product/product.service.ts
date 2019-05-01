@@ -23,6 +23,7 @@ export class ProductService {
         obs.next(this.products);
       } else {
         // rubric80
+        // Used jQuery or Angular for data binding
         this.http.get(environment.productsAPIEndpoint).subscribe((data: any) => {
           if (data) {
             this.products = data;
