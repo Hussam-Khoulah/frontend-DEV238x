@@ -35,6 +35,7 @@ export class ShoppingComponent implements OnInit {
     this.title.setTitle(`Grocery live - Categories`);
     this.productService.fetch().subscribe(data => {
       this.products = data;
+      // rubric27
       this.activatedRoute.queryParams.subscribe(params => {
         this.subcategoryName = params['name'];
 
@@ -43,6 +44,7 @@ export class ShoppingComponent implements OnInit {
         if (this.subcategoryName) {
           this.subcategory = this.productService.findSubcategory(this.products, this.subcategoryName);
           this.subcategory.itemsInOriginalSorting = [...this.subcategory.items];
+          // rubric28
           this.visibleProductsCount = this.inStockOnly ?
             this.subcategory.items.filter(item => item.stock > 0).length :
             this.subcategory.items.length;
@@ -53,6 +55,7 @@ export class ShoppingComponent implements OnInit {
     });
   }
 
+  // rubric30
   onAddToCart(item) {
     this.cartService.addItem({...item, qty: 1 });
     this.cartService.fetch().subscribe(data => {
@@ -62,11 +65,14 @@ export class ShoppingComponent implements OnInit {
 
   onShowInStock() {
     this.inStockOnly = !this.inStockOnly;
+    // rubric28
     this.visibleProductsCount = this.inStockOnly ?
+      // rubric29
       this.subcategory.items.filter(item => item.stock > 0).length :
       this.subcategory.items.length;
   }
 
+  // rubric33
   onSortProducts(event) {
     const sortingOption = this.sortingOptions[event.target.value];
     if (sortingOption !== 'None') { // price, name, rating

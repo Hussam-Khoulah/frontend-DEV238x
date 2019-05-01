@@ -1,8 +1,11 @@
 <div class="container-fluid">
 
+  <!--rubric14-->
   <div class="row navbar navbar-light bg-light border">
 
     <div class="col-sm-6 col-md-6">
+      <!--rubric15-->
+      <!--rubric16-->
       <h4>
         {{ subcategoryName && subcategoryName.length > 0 ?
         'Showing ' + visibleProductsCount + ' of ' + subcategory.items.length + ' items in ' +  subcategoryName :
@@ -12,12 +15,15 @@
 
     <div class="col-sm-3 col-md-3">
       <label for="onlyInStockCheckBox">In stock only: </label>
+      <!--rubric17-->
       <input type="checkbox" id="onlyInStockCheckBox"
              [checked]="inStockOnly"
              (change)="onShowInStock()">
     </div>
     <div class="col-sm-3 col-md-3">
       <label for="productSortingSelect">Sort by: </label>
+      <!--rubric18-->
+      <!--rubric33-->
       <select id="productSortingSelect" (change)="onSortProducts($event)">
         <option *ngFor="let key of sortingKeys" [value]="key">{{key}}</option>
       </select>
@@ -29,12 +35,15 @@
     <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2">
 
       <div id="border">
+        <!--rubric19-->
+        <!--rubric25-->
         <div class="list-group">
 
           <div *ngFor="let item of products; let i = index">
             <a [href]="'#' + item.category.replace(' ', '_')" class="list-group-item list-group-item-light font-weight-bold" data-toggle="collapse" data-parent="#MainMenu">{{ item.category }} &#9663;</a>
             <div class="collapse" [id]="item.category.replace(' ', '_')">
 
+              <!--rubric26-->
               <a
                 *ngFor="let subCat of item.subcategories;"
                 [routerLink]="['/shopping']"
@@ -52,19 +61,25 @@
     <div class="col-12 col-sm-8 col-md-9 col-lg-9 col-xl-10">
 
       <div class="row">
+        <!--rubric20-->
         <div
           class="col-12 col-sm-6 col-md-4 col-lg-3 border dock-bottom"
           *ngFor="let item of subcategory.items; let i = index"
           [ngClass]="{ 'd-none': inStockOnly ? item.stock <= 0 : false }">
           <div class="thumbnail">
             <div class="caption row">
+              <!--rubric21-->
               <div class="col-12 font-weight-bold"><a [routerLink]="['/product']" [queryParams]="{ name: item.name }">{{item.name}}</a></div>
               <div class="col-6"><span>Stock: {{item.stock}}</span></div>
+              <!--rubric22-->
               <div class="col-6"><span>{{item.price}}$</span></div>
             </div>
             <div class="row">
               <div class="col">
+                <!--rubric32-->
                 <a [routerLink]="['/product']" [queryParams]="{ name: item.name }">
+                  <!--rubric23-->
+                  <!--rubric31-->
                   <img [src]="item.imagelink" [alt]="item.name" class="img-fluid" [title]="item.description" [alt]="item.name">
                 </a>
               </div>
@@ -74,6 +89,8 @@
 
           <div class="row product-footer bg-light align-middle">
             <div class="col-4">
+              <!--rubric24-->
+              <!--rubric30-->
               <button
                 [disabled]="item.stock <= 0"
                 class="btn btn-outline-secondary"

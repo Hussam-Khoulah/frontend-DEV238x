@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  // rubric81
   productsAPIEndpoint: 'https://webmppcapstone.blob.core.windows.net/data/itemsdata.json'
 };
 

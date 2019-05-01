@@ -30,6 +30,7 @@ export class CartComponent implements OnInit {
     this.title.setTitle('Grocery live - Cart');
   }
 
+  // rubric53
   calcCartSubtotal() {
     if (this.items && this.items.length > 0) {
       this.subtotal = this.items.map(item => item.price * item.qty).reduce((total, itemCost) => total + itemCost);
@@ -39,6 +40,7 @@ export class CartComponent implements OnInit {
     }
   }
 
+  // rubric55
   onItemQtyChange(event, item, index) {
     if ( Number.parseFloat(event.target.value) <= Number.parseFloat(item.stock)) {
       this.items[index].qty = event.target.value;
@@ -48,11 +50,14 @@ export class CartComponent implements OnInit {
     }
   }
 
+  // rubric54
   onDeleteItem(event, index) {
     this.items.splice(index, 1);
-    console.log(this.cartService.items);
+    // rubric53
+    this.calcCartSubtotal();
   }
 
+  // rubric51
   onSubmit() {
     const result = {
       subtotal: this.subtotal,

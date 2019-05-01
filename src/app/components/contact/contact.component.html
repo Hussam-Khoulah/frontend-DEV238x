@@ -4,12 +4,14 @@
   </div>
   <div class="row">
     <div class="col-12 col-md-6">
+      <!--rubric57-->
       <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="nameTextBox">Name:</label>
           <input
             type="text" id="nameTextBox" class="form-control" required
             [(ngModel)]="name" name="name" #nameCtrl="ngModel">
+          <!--rubric61-->
           <div [hidden]="nameCtrl.valid || nameCtrl.pristine"
                class="alert alert-danger">
             Name is required
@@ -21,6 +23,7 @@
           <input
             type="email" id="emailTextBox" class="form-control" required
             [(ngModel)]="email" name="email" #emailCtrl="ngModel">
+          <!--rubric61-->
           <div [hidden]="emailCtrl.valid || emailCtrl.pristine"
                class="alert alert-danger">
             Email is required
@@ -41,15 +44,18 @@
           <textarea
             id="messageTextBox" class="form-control" required
             [(ngModel)]="message" name="message" #messageCtrl="ngModel"></textarea>
+          <!--rubric61-->
           <div [hidden]="messageCtrl.valid || messageCtrl.pristine"
                class="alert alert-danger">
             Message is required
           </div>
         </div>
+        <!--rubric59-->
         <button type="submit" class="btn btn-success" [disabled]="!contactForm.form.valid">Send</button>
       </form>
     </div>
 
+    <!--rubric58-->
     <div class="col-12 col-md-6 contact-info p-4">
       <p>In case you have any questions, please feel free to contact us as follows:</p>
       <p>Email: info@grocerylive.com</p>

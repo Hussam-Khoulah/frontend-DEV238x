@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   activateCarousel() {
+    // rubric10
     $(document).ready(function() {
       $(function () {
         $('#toggleSlideShow').click(function (event) {

@@ -20,6 +20,7 @@ export class ContactComponent implements OnInit {
     this.title.setTitle('Grocery live - Contact us');
   }
 
+  // rubric60
   onSubmit() {
     alert(this.message);
   }

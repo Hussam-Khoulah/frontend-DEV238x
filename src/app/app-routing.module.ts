@@ -10,11 +10,17 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 
 const routes: Routes = [
+  // rubric13
   { path: '', component: HomeComponent },
+  // rubric46
   { path: 'product', component: ProductComponent },
+  // rubric34
   { path: 'shopping', component: ShoppingComponent },
+  // rubric56
   { path: 'cart', component: CartComponent },
+  // rubric62
   { path: 'contact', component: ContactComponent },
+  // rubric64
   { path: 'about', component: AboutComponent },
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}

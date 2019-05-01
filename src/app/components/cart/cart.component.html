@@ -10,6 +10,7 @@
     </div>
 
     <!--Cart Items-->
+    <!--rubric47-->
     <div class="col-12 col-sm-12 col-md-8 bg-light" [ngClass]="{ 'd-none': items.length <= 0}">
       <div *ngFor="let item of items; let i = index;" class="row p-2 item-hover">
 
@@ -33,6 +34,7 @@
         </div>
 
       </div>
+      <!--rubric49-->
       <div class="row">
         <div class="col-12 text-right">
           <p>Subtotal: {{ subtotal }}$</p>
@@ -46,12 +48,15 @@
     <!--Cart checkout details-->
     <div class="col-12 col-sm-12 col-md-4 p-4 border" [ngClass]="{ 'd-none': items.length <= 0 }">
 
+      <!--rubric48-->
       <h3>Enter Shipping Details</h3>
+      <!--rubric51-->
       <form #checkoutForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <input
             type="text" id="nameTextBox" class="form-control" required placeholder="Name"
             [(ngModel)]="name" name="name" #nameCtrl="ngModel">
+          <!--rubric52-->
           <div [hidden]="nameCtrl.valid || nameCtrl.pristine"
                class="alert alert-danger">
             Name is required
@@ -62,6 +67,7 @@
           <input
             type="text" id="addressTextBox" class="form-control" required placeholder="Address"
             [(ngModel)]="address" name="address" #addressCtrl="ngModel">
+          <!--rubric52-->
           <div [hidden]="addressCtrl.valid || addressCtrl.pristine"
                class="alert alert-danger">
             Address is required
@@ -72,6 +78,7 @@
           <input
             type="text" id="cityTextBox" class="form-control" required placeholder="City"
             [(ngModel)]="city" name="city" #cityCtrl="ngModel">
+          <!--rubric52-->
           <div [hidden]="cityCtrl.valid || cityCtrl.pristine"
                class="alert alert-danger">
             City is required
@@ -82,13 +89,14 @@
           <input
             type="text" id="phoneTextBox" class="form-control" required placeholder="Phone number"
             [(ngModel)]="phone" name="phone" #phoneCtrl="ngModel">
+          <!--rubric52-->
           <div [hidden]="phoneCtrl.valid || phoneCtrl.pristine"
                class="alert alert-danger">
             Phone number is required
           </div>
         </div>
-
-        <button type="submit" class="btn btn-success" [disabled]="!checkoutForm.form.valid">Send</button>
+        <!--rubric50-->
+        <button type="submit" class="btn btn-success" [disabled]="!checkoutForm.form.valid">Checkout</button>
       </form>
 
     </div>

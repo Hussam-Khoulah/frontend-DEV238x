@@ -22,6 +22,7 @@ export class ProductService {
       if (this.products.length > 0) {
         obs.next(this.products);
       } else {
+        // rubric80
         this.http.get(environment.productsAPIEndpoint).subscribe((data: any) => {
           if (data) {
             this.products = data;

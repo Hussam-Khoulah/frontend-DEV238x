@@ -36,6 +36,7 @@ export class ProductComponent implements OnInit {
     }
   }
 
+  // rubric44
   onAddToCart() {
     if (!(this.qty <= Number.parseFloat(this.product.stock) && (this.qty > 0))) {
       this.validQty = false;
@@ -48,6 +49,7 @@ export class ProductComponent implements OnInit {
     }
   }
 
+  // rubric45
   onGoBackClicked() {
     this.location.back();
   }

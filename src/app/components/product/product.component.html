@@ -1,38 +1,49 @@
 <div class="container">
   <div class="row p-4">
     <div class="col">
+      <!--rubric43-->
+      <!--rubric45-->
       <button type="button" class="btn btn-default btn-lg" (click)="onGoBackClicked()">&#10094; Back</button>
     </div>
   </div>
   <div class="row p-4">
     <div class="col-12 col-sm-12 col-md-5 text-center">
+      <!--rubric36-->
       <img class="img-fluid" [src]="product.imagelink" [alt]="product.name">
     </div>
     <div class="d-none d-md-block col-md-1"></div>
     <div class="col-12 col-sm-12 col-md-6 text-center h-100 align-middle">
+      <!--rubric35-->
       <h2>
         {{ product.name }}
       </h2>
+      <!--rubric37-->
       <p>
         Rating: {{ product.rating }}/5
       </p>
+      <!--rubric39-->
       <p>
         Price: {{ product.price }}
       </p>
+      <!--rubric38-->
       <p>
         Items in stock: {{ product.stock }}
       </p>
+      <!--rubric40-->
       <p>
         Description: {{ product.description }}
       </p>
       <div>
         <label for="value">Qty: </label>
+        <!--rubric42-->
         <input type="text" id="value" autocomplete="off" class="text-center" [(ngModel)]="qty" required/>
         <p class="alert alert-danger" *ngIf="!validQty">
           Please enter a valid qty and make sure it's available in stock
         </p>
       </div>
       <div>
+        <!--rubric41-->
+        <!--rubric44-->
         <button type="submit" class="btn btn-primary" (click)="onAddToCart()">Add</button>
       </div>
     </div>
