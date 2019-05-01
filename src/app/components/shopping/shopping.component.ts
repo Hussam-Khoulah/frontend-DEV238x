@@ -36,6 +36,8 @@ export class ShoppingComponent implements OnInit {
     this.productService.fetch().subscribe(data => {
       this.products = data;
       // rubric27
+      // Clicking on a subcategory should change the name of the selected
+      // category in the controls bar
       this.activatedRoute.queryParams.subscribe(params => {
         this.subcategoryName = params['name'];
 
@@ -45,7 +47,11 @@ export class ShoppingComponent implements OnInit {
           this.subcategory = this.productService.findSubcategory(this.products, this.subcategoryName);
           this.subcategory.itemsInOriginalSorting = [...this.subcategory.items];
           // rubric28
-          this.visibleProductsCount = this.inStockOnly ?
+          // The section of the controls bar that displays the number of items
+          // shown out of the total number of items in the selected category
+          // should update whenever a new subcategory is selected or
+          // whenever the “In Stock Only” switch is toggled.
+            this.visibleProductsCount = this.inStockOnly ?
             this.subcategory.items.filter(item => item.stock > 0).length :
             this.subcategory.items.length;
         } else {
@@ -56,6 +62,8 @@ export class ShoppingComponent implements OnInit {
   }
 
   // rubric30
+  // Clicking on the “Add” button inside a grid cell should add 1 unit of
+  // the associated product to the shopping cart
   onAddToCart(item) {
     this.cartService.addItem({...item, qty: 1 });
     this.cartService.fetch().subscribe(data => {
@@ -68,7 +76,9 @@ export class ShoppingComponent implements OnInit {
     // rubric28
     this.visibleProductsCount = this.inStockOnly ?
       // rubric29
-      this.subcategory.items.filter(item => item.stock > 0).length :
+      //   If the “In Stock Only” toggle is checked, only items that are in
+      // stock should be shown in the products grid.
+    this.subcategory.items.filter(item => item.stock > 0).length :
       this.subcategory.items.length;
   }
 

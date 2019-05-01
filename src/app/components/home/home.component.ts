@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
 
   activateCarousel() {
     // rubric10
+    // If the “Toggle Slide Show” switch is checked, the product carousel
+    //   should automatically move forward one slide every 3 seconds
     $(document).ready(function() {
       $(function () {
         $('#toggleSlideShow').click(function (event) {

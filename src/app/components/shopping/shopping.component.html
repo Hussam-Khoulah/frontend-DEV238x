@@ -1,11 +1,20 @@
 <div class="container-fluid">
 
   <!--rubric14-->
+  <!--The user shall see a controls bar-->
   <div class="row navbar navbar-light bg-light border">
 
     <div class="col-sm-6 col-md-6">
       <!--rubric15-->
+      <!--The user shall see a section in the controls bar that displays the-->
+      <!--selected category name-->
       <!--rubric16-->
+      <!--The user shall see a section in the controls bar that displays the-->
+      <!--number of items shown out of the total number of items in the-->
+      <!--selected category-->
+      <!--rubric27-->
+      <!--Clicking on a subcategory should change the name of the selected-->
+      <!--category in the controls bar-->
       <h4>
         {{ subcategoryName && subcategoryName.length > 0 ?
         'Showing ' + visibleProductsCount + ' of ' + subcategory.items.length + ' items in ' +  subcategoryName :
@@ -16,6 +25,8 @@
     <div class="col-sm-3 col-md-3">
       <label for="onlyInStockCheckBox">In stock only: </label>
       <!--rubric17-->
+      <!--The user shall see a toggle switch labeled “In Stock Only” in the-->
+      <!--controls bar-->
       <input type="checkbox" id="onlyInStockCheckBox"
              [checked]="inStockOnly"
              (change)="onShowInStock()">
@@ -23,7 +34,12 @@
     <div class="col-sm-3 col-md-3">
       <label for="productSortingSelect">Sort by: </label>
       <!--rubric18-->
+      <!--The user shall see a dropdown list labeled “Sort By” that has the-->
+      <!--following options: (None, Price, Alphabetical, Rating) in the-->
+      <!--controls bar-->
       <!--rubric33-->
+      <!--Changing the selected sorting method should reorder the-->
+      <!--products in the grid-->
       <select id="productSortingSelect" (change)="onSortProducts($event)">
         <option *ngFor="let key of sortingKeys" [value]="key">{{key}}</option>
       </select>
@@ -36,7 +52,11 @@
 
       <div id="border">
         <!--rubric19-->
+        <!--The user shall see a category menu that displays all of the-->
+        <!--available shopping categories-->
         <!--rubric25-->
+        <!--Clicking on a category name in the category menu should toggle a-->
+        <!--dropdown of the available subcategories within that category-->
         <div class="list-group">
 
           <div *ngFor="let item of products; let i = index">
@@ -44,6 +64,8 @@
             <div class="collapse" [id]="item.category.replace(' ', '_')">
 
               <!--rubric26-->
+              <!--Clicking on a subcategory should repopulate the grid of products-->
+              <!--with items from the subcategory that was just clicked.-->
               <a
                 *ngFor="let subCat of item.subcategories;"
                 [routerLink]="['/shopping']"
@@ -62,6 +84,8 @@
 
       <div class="row">
         <!--rubric20-->
+        <!--The user shall see a grid that is populated with the products of-->
+        <!--the selected category-->
         <div
           class="col-12 col-sm-6 col-md-4 col-lg-3 border dock-bottom"
           *ngFor="let item of subcategory.items; let i = index"
@@ -69,17 +93,26 @@
           <div class="thumbnail">
             <div class="caption row">
               <!--rubric21-->
+              <!--Each grid cell shall have the name of the product displayed-->
               <div class="col-12 font-weight-bold"><a [routerLink]="['/product']" [queryParams]="{ name: item.name }">{{item.name}}</a></div>
               <div class="col-6"><span>Stock: {{item.stock}}</span></div>
               <!--rubric22-->
+              <!--Each grid cell shall have the price of the product displayed-->
               <div class="col-6"><span>{{item.price}}$</span></div>
             </div>
             <div class="row">
               <div class="col">
                 <!--rubric32-->
+                <!--If the user clicks on a product name within a grid cell, they should-->
+                <!--be taken to a product page that is populated with the details of-->
+                <!--the clicked product-->
                 <a [routerLink]="['/product']" [queryParams]="{ name: item.name }">
                   <!--rubric23-->
+                  <!--Each grid cell shall have an image of the product displayed-->
                   <!--rubric31-->
+                  <!--If the user clicks on a product image within a grid cell, they should-->
+                  <!--be taken to a product page that is populated with the details of-->
+                  <!--the clicked product-->
                   <img [src]="item.imagelink" [alt]="item.name" class="img-fluid" [title]="item.description" [alt]="item.name">
                 </a>
               </div>
@@ -90,6 +123,7 @@
           <div class="row product-footer bg-light align-middle">
             <div class="col-4">
               <!--rubric24-->
+              <!--Each grid cell shall have a button labeled “Add”-->
               <!--rubric30-->
               <button
                 [disabled]="item.stock <= 0"
